@@ -1,12 +1,29 @@
-﻿<Window x:Class="UImintCommand.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UImintCommand"
+        xmlns:ViewModels="clr-namespace:UImintCommand.ViewModels" x:Class="UImintCommand.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
+        <Window.DataContext>
+            <ViewModels:MainViewModel/>
+        </Window.DataContext>
     <Grid>
-        
+        <Grid HorizontalAlignment="Left" Height="210" Margin="39,35,0,0" VerticalAlignment="Top" Width="437">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+
+            </Grid.RowDefinitions>
+            <Button Command="{Binding ButtonClickedCommand}" Content="Process" HorizontalAlignment="Left" Margin="10,20.2,0,0" VerticalAlignment="Top" Width="417" Grid.Row="1"/>
+            <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="417" Margin="10,20,0,0" DataContext="{Binding InputValue}"/>
+
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="10,27.4,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="417" DataContext="{Binding OutputValue}"/>
+
+        </Grid>
+
     </Grid>
 </Window>
